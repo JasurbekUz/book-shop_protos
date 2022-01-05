@@ -1,0 +1,13 @@
+syntax="proto3";
+
+package order;
+
+import "message.proto";
+
+service OrderService {
+	rpc Create(Order) returns (Order);
+	rpc Get(ByIdReq) returns (Order);
+	rpc List(ListReq) returns (ListResp);
+	rpc Update(Order) returns (Order);
+	rpc Delete(ByIdReq) returns (Empty);
+}
