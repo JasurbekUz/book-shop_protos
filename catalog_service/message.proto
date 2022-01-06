@@ -4,7 +4,7 @@ package catalog;
 
 message Author {
     string authorId = 1;
-    string name = 2;
+    string authorName = 2;
     string createdAt = 3;
     string updatedAt = 4;
     string deletedAt = 5;
@@ -12,17 +12,17 @@ message Author {
 
 message Category {
     string categoryId = 1;
-    string name = 2;
+    string categoryName = 2;
     string categoryParentId = 3;
     string createdAt = 4;
     string updatedAt = 5;
     string deletedAt = 6;
 }
 
-message PostBook {
+message Book {
     string bookId = 1;
-    string name = 2;
-    string author_id = 3;
+    string bookName = 2;
+    string authorId = 3;
     string createdAt = 4;
     string updatedAt = 5;
     string deletedAt = 6;
@@ -37,8 +37,8 @@ message BookCategory {
     string updatedAt = 5;
 }
 
-message Book {
-    string name = 1;
+message GetBook {
+    Book book = 1;
     Author author = 2;
     repeated Category categories  = 3;
 }
@@ -63,7 +63,12 @@ message CategoryListResp {
 }
 
 message BookListResp {
-    repeated Book books = 1;
+    repeated GetBook books = 1;
+    int64 count = 2;
+}
+
+message BookCategoryListResp {
+    repeated BookCategory BookCategories = 1;
     int64 count = 2;
 }
 

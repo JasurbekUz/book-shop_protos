@@ -17,12 +17,13 @@ service CatalogService {
     rpc UpdateCategory(Category) returns (Category);
     rpc DeleteCategory(ByIdReq) returns (Empty);
 
-    rpc CreateBook(PostBook) returns (Book);
-    rpc GetBook(ByIdReq) returns (Book);
+    rpc CreateBook(Book) returns (GetBook);
+    rpc GetBook(ByIdReq) returns (GetBook);
     rpc GetBooks(ListReq) returns (BookListResp);
-    rpc UpdateBook(PostBook) returns (Book);
+    rpc UpdateBook(Book) returns (GetBook);
     rpc DeleteBook(ByIdReq) returns (Empty);
 
-    rpc CreateBookCategory(BookCategory) returns (Book);
-    rpc UpdateBookCategory(BookCategory) returns (Book);
+    rpc CreateBookCategory(BookCategory) returns (GetBook);
+    rpc GetBookCategoryList(ListReq) returns (BookCategoryListResp);
+    rpc UpdateBookCategory(BookCategory) returns (GetBook);
 }
