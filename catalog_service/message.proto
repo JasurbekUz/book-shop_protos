@@ -30,10 +30,11 @@ message Book {
 
 // many-to-many relations book_category
 message BookCategory {
-    string bookId = 1;
-    string categoryParentId  = 2;
-    string createdAt = 3;
-    string updatedAt = 4;
+    string relationId = 1;
+    string bookId = 2;
+    string categoryParentId  = 3;
+    string createdAt = 4;
+    string updatedAt = 5;
 }
 
 message GetBook {
