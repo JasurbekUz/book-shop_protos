@@ -30,17 +30,27 @@ message Book {
 
 // many-to-many relations book_category
 message BookCategory {
-    string relationId = 1;
+    string relationBCId = 1;
     string bookId = 2;
     string categoryParentId  = 3;
     string createdAt = 4;
     string updatedAt = 5;
 }
 
-message GetBook {
-    Book book = 1;
-    Author author = 2;
-    repeated Category categories  = 3;
+// many-to-many relations book_author
+message BookAuthor {
+    string relationBAId = 1;
+    string bookId = 2;
+    string authorId  = 3;
+    string createdAt = 4;
+    string updatedAt = 5;
+}
+
+message Get_Book {
+    string bookId = 1;
+    string bookName = 2;
+    repeated Author authors = 3;
+    repeated Category categories = 4;
 }
 
 message ByIdReq {
@@ -63,12 +73,17 @@ message CategoryListResp {
 }
 
 message BookListResp {
-    repeated GetBook books = 1;
+    repeated Get_Book books = 1;
+    int64 count = 2;
+}
+
+message BookAuthorListResp {
+    repeated BookAuthor bookAuthors = 1;
     int64 count = 2;
 }
 
 message BookCategoryListResp {
-    repeated BookCategory BookCategories = 1;
+    repeated BookCategory bookCategories = 1;
     int64 count = 2;
 }
 
