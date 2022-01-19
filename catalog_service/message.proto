@@ -22,10 +22,9 @@ message Category {
 message Book {
     string bookId = 1;
     string bookName = 2;
-    string authorId = 3;
-    string createdAt = 4;
-    string updatedAt = 5;
-    string deletedAt = 6;
+    string createdAt = 3;
+    string updatedAt = 4;
+    string deletedAt = 5;
 }
 
 // many-to-many relations book_category
